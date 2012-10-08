@@ -1,0 +1,26 @@
+<h1>Academies</h1>
+<table>
+	<tr>
+		<td>Name</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<%  @academies.each do |a| %>
+  <tr>
+  	<td>
+  		<%= a.name  %>  
+  	</td>
+  	<td>	
+  		<%= link_to "Show", a %> 
+  	</td>
+  	<td>
+  		<%= link_to "Edit", edit_academy_path(a)  %>   <%# Instead of 'a' , you can write full path for link 			like  $- /academies/#{a.id}/edit -$  or $-  -$   %>
+  	</td>
+  	<td>	
+   		<%= link_to "Delete", a , :method => :delete, confirm: "Are you sure?" %> <br />
+   	</td>	
+   </tr>
+<% end %>
+</table>
+
