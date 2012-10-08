@@ -1,0 +1,3 @@
+class Sporcad < ActiveRecord::Base
+  attr_accessible :academy_id, :sport_id
+end

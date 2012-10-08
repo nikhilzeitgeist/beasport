@@ -1,0 +1,4 @@
+<h1>Academy: <%=@academy.name %></h1><br />
+
+<%=@academy.name %>
+<p>Find me in app/views/academies/show.html.erb</p>

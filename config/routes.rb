@@ -1,4 +1,8 @@
 Beasport::Application.routes.draw do
+
+
+	resources :sports, :academies, :sporcads
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

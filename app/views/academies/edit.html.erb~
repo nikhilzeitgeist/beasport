@@ -1,0 +1,2 @@
+<h1>Edit:<%= @academy.name %></h1>
+<p>Find me in app/views/academies/edit.html.erb</p>

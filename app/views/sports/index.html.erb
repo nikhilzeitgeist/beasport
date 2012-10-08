@@ -1,4 +1,4 @@
-<h1>Academies</h1>
+<h1>Sports</h1>
 <table>
 	<tr>
 		<td>Name</td>
@@ -6,7 +6,7 @@
 		<td></td>
 		<td></td>
 	</tr>
-	<%  @academies.each do |a| %>
+	<%  @sports.each do |a| %>
   <tr>
   	<td>
   		<%= a.name  %>  
@@ -15,7 +15,7 @@
   		<%= link_to "Show", a %> 
   	</td>
   	<td>
-  		<%= link_to "Edit", edit_academy_path(a)  %>   <%# Instead of 'a' , you can write full path for link 			like  $- /academies/#{a.id}/edit -$  or $-  -$   %>
+  		<%= link_to "Edit", edit_sport_path(a)  %>   <%# Instead of 'a' , you can write full path for link 			like  $- /sports/#{a.id}/edit -$  or $-  -$   %>
   	</td>
   	<td>	
    		<%= link_to "Delete", a , :method => :delete, confirm: "Are you sure?" %> <br />
@@ -23,4 +23,6 @@
    </tr>
 <% end %>
 </table>
+
+<%=  link_to "Create new", new_sport_path %>
 

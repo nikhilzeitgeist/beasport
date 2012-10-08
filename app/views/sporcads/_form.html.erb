@@ -1,0 +1,5 @@
+<%= form_for @sporcad do |f|  %>
+    <%= collection_select(:sporcad, :academy_id, Academy.all, :id, :name) %>
+    <%= collection_select(:sporcad, :sport_id, Sport.all, :id, :name) %>
+    <%= f.submit %>
+<% end %>
