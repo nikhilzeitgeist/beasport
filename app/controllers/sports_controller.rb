@@ -3,6 +3,10 @@ class SportsController < ApplicationController
     @sport = Sport.new
   end
 
+  def show
+    @sport = Sport.find(params[:id])
+  end
+
   def update
     @sport = Sport.find(params[:id])
     @sport.update_attributes(params[:sport])
