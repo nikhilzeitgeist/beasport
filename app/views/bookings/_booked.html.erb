@@ -1,0 +1,8 @@
+<table>
+  <% @sporcad.bookings.order("booked_at").each do |b| %>
+    <tr>
+      <td><%=  b.booked_at.strftime('%Y-%b-%d %A %H:%M') %> </td><td>To</td><td><%=b.booked_at.hour+1%>:00</td>
+      <td><%= link_to "Cancel", [b.sporcad, b], confirm: "Are you sure?", method: :delete  %></td>
+    </tr>
+  <%end%>
+</table>

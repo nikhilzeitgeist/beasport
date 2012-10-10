@@ -1,0 +1,12 @@
+<%= form_for @booking do |f| %>
+  <%# <%= f.label :sporcad_id%>
+  <%#  <%= f.text_field :sporcad_id %>
+   <%#<%= collection_select( :booking, :sporcad_id, Sporcad.all, :id, :academy_id) %>
+  <%=  select( "booking", "sporcad_id", Sporcad.all.collect{|sc| ["#{sc.academy.name}->#{sc.sport.name}", sc.id]},
+               {:prompt => 'Select Option'}) %>
+  <%= f.datetime_select  :booked_at, :start_year => 2012, :end_year => 2012,
+                         :prompt => { :day => 'Select day', :month => 'Select month', :hour => 'Select Time'},
+                         :discard_minute => true%>
+  <%= f.submit %>
+<% end %>
+
