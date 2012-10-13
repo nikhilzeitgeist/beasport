@@ -11,7 +11,7 @@
     <tr>
       <td><%= sc.academy.name %> </td>
       <td><%= sc.sport.name %></td>
-      <td><%= link_to 'Show', sc %></td>
+      <td><%= link_to 'Show', "/sporcads/#{sc.id}" %></td>
       <td><%= link_to 'Edit', edit_sporcad_path(sc) %></td>
       <td><%= link_to 'Delete', sc, method: :delete, confirm: "Are you sure?" %></td>
     </tr>

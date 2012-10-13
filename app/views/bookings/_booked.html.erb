@@ -3,6 +3,8 @@
     <tr>
       <td><%=  b.booked_at.strftime('%Y-%b-%d %A %H:%M') %> </td><td>To</td><td><%=b.booked_at.hour+1%>:00</td>
       <td><%= link_to "Cancel", [b.sporcad, b], confirm: "Are you sure?", method: :delete  %></td>
+     <td><%=  link_to "Update", "/sporcads/#{@sporcad.id}/bookings/#{b.id}/edit"  %></td>
+     <%# '/sporcads/#{@sporcad.id}/bookings/#{b.id}/edit' %>
     </tr>
   <%end%>
 </table>

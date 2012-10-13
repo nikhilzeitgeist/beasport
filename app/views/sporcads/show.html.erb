@@ -1,4 +1,4 @@
-<h1>Sporcads#show</h1>
+<h1>Sporcads#Showing Bookings</h1>
 <table>
   <tr>
     <td>Academy</td>
@@ -15,13 +15,11 @@
 
 <h2>Bookings made:</h2>
 <%= render '/bookings/booked' %>
-<h2>Book this court:</h2>
 
-<%= form_for ([@sporcad,@sporcad.bookings.build]) do |f| %>
-
-  <%= f.datetime_select  :booked_at, :start_year => 2012, :end_year => 2012,
-                         :prompt => { :day => 'Select day', :month => 'Select month', :hour => 'Select Time'},
-                         :discard_minute => true%>
-  <%= f.submit %>
-<% end %>
-
+<% if @booking.id == nil %>   <%# @booking id will be nil when routed from sporcads#show and will have some v
+    when routed from bookings#edit %>
+  <h2>Book this court</h2>
+<% else %>
+  <h2>Update Booking:</h2>
+<%end %>
+<%= render 'bookings/form' %>

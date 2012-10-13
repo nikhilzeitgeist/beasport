@@ -1,6 +1,11 @@
 <%= form_for(@academy) do |f|  %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+ <%=  render :partial => 'shared/errors', :locals => {:record_object => @academy} %>
 
-  <%= f.submit %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

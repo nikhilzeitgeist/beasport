@@ -7,6 +7,8 @@ Beasport::Application.routes.draw do
     resources :bookings
   end
 
+  match 'bookings/edit' => 'bookings#edit'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

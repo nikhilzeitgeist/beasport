@@ -1,16 +1,25 @@
 class SporcadsController < ApplicationController
   def create
-    Sporcad.create(params[:sporcad])
-    redirect_to sporcads_path
+    @sporcad = Sporcad.new(params[:sporcad])
+    if @sporcad.save
+      redirct_to @sporcad
+    else
+      render :new
+    end
   end
 
   def show
     @sporcad = Sporcad.find(params[:id])
+    @booking = @sporcad.bookings.build
   end
 
   def update
-    Sporcad.find(params[:id]).update_attributes(params[:sporcad])
-    redirect_to  Sporcad.find(params[:id])
+    @sporcad = Sporcad.find(params[:id])
+    if @sportcad.update_attributes(params[:sporcad])
+      redirct_to @sporcad
+    else
+      render :new
+    end
   end
 
   def destroy

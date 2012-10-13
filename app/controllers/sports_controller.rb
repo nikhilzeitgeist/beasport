@@ -9,9 +9,12 @@ class SportsController < ApplicationController
 
   def update
     @sport = Sport.find(params[:id])
-    @sport.update_attributes(params[:sport])
-    @sports = Sport.all
-    redirect_to sports_path
+
+    if @sport.update_attributes(params[:sport])
+      redirct_to @sport
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -29,8 +32,13 @@ class SportsController < ApplicationController
   end
 
   def create
-     Sport.create(params[:sport])
-    redirect_to sports_path
+     @sport = Sport.new(params[:sport])
+     if @sport.save
+        redirct_to @sport
+      else
+         render :new
+    end
+
 
     #   can also be done like: {redirect_to :action => :index}
     #  note that redirect will ask browser to fire another request so better way could be like this

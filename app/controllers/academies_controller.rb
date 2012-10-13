@@ -5,9 +5,11 @@ class AcademiesController < ApplicationController
 
   def update
   	@academy = Academy.find(params[:id])
-  	@academy.update_attributes(params[:academy])
-  	@academies = Academy.all
-  	redirect_to academies_path
+    if @academy.update_attributes(params[:academy])
+      redirct_to @academy
+    else
+      render :new
+    end
   end
 
   def show
@@ -30,8 +32,14 @@ class AcademiesController < ApplicationController
   end
 
   def create
-    @academy = Academy.create(params[:academy])
-    redirect_to academies_path
+
+    @academy = Academy.new(params[:academy])
+
+      if  @academy.save
+        redirect_to @academy
+     else
+       render :action => :new
+     end
 
      #   can also be done like: {redirect_to :action => :index}
      #  note that redirect will ask browser to fire another request so better way could be like this
