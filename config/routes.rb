@@ -2,12 +2,31 @@ Beasport::Application.routes.draw do
 
 
 
-	resources :sports, :academies
+  get "users/new"
+
+  match '/signup' => 'users#new'
+
+  get "static_pages/home"
+
+  get "static_pages/help"
+
+  get "static_pages/sign_in"
+
+  get "static_pages/sign_up"
+
+	resources :sports, :academies, :users
+  resources :sessions,  :only => [:new, :create, :destroy]
+
   resources :sporcads do
     resources :bookings
   end
 
-  match 'bookings/edit' => 'bookings#edit'
+  match 'bookings/edit', to: 'bookings#edit'
+  root :to => 'static_pages#home'
+  match '/help'=> 'static_pages#help'
+  match '/signin' => 'sessions#new'
+  match '/signout' => 'sessions#destroy', :via => :delete
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -57,7 +76,7 @@ Beasport::Application.routes.draw do
   #   end
 
   # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
+  # just remember to delete public/zindex.html.
   # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"

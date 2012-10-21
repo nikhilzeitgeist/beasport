@@ -11,9 +11,9 @@ class SportsController < ApplicationController
     @sport = Sport.find(params[:id])
 
     if @sport.update_attributes(params[:sport])
-      redirct_to @sport
+      redirect_to @sport
     else
-      render :new
+      render :edit
     end
   end
 
@@ -34,7 +34,7 @@ class SportsController < ApplicationController
   def create
      @sport = Sport.new(params[:sport])
      if @sport.save
-        redirct_to @sport
+        redirect_to @sport
       else
          render :new
     end

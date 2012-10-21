@@ -1,4 +1,5 @@
 <%= form_for ([@sporcad,@booking]) do |f| %>
+  <% debugger %>
   <%= render :partial => "shared/errors", :locals => {:record_object => @booking}  %>  <%# passing @booking since
     errors will not be passed on to @sporcad if they occur on accociated @booking %>
   <%= f.datetime_select  :booked_at, :start_year => 2012, :end_year => 2012,

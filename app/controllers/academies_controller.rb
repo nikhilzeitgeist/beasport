@@ -6,9 +6,9 @@ class AcademiesController < ApplicationController
   def update
   	@academy = Academy.find(params[:id])
     if @academy.update_attributes(params[:academy])
-      redirct_to @academy
+      redirect_to @academy
     else
-      render :new
+      render :edit
     end
   end
 

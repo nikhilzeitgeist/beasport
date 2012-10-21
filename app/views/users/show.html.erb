@@ -1,0 +1,16 @@
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%=  @user.name %></td>
+      <td><%=  @user.email %></td>
+      <td><%= link_to "Update Profile", edit_user_path %></td>
+    </tr>
+  </tbody>
+</table>
+
+

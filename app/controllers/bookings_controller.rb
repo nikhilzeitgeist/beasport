@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
 
     @sporcad = Sporcad.find(params[:sporcad_id])
     @booking = @sporcad.bookings.new(params[:booking])
+
     if @booking.save
       redirect_to @sporcad
     else
@@ -23,7 +24,7 @@ class BookingsController < ApplicationController
     if @booking.update_attributes(params[:booking])
       redirect_to @sporcad
     else
-      render :new
+      render :edit
     end
   end
 

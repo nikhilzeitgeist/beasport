@@ -16,9 +16,9 @@ class SporcadsController < ApplicationController
   def update
     @sporcad = Sporcad.find(params[:id])
     if @sportcad.update_attributes(params[:sporcad])
-      redirct_to @sporcad
+      redirect_to @sporcad
     else
-      render :new
+      render :edit
     end
   end
 
