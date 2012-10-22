@@ -1,8 +1,11 @@
 class SporcadsController < ApplicationController
+    before_filter :signed_in_user, :super_or_correct_seller_user, :only => [:edit,:update, :destroy]
+    before_filter :signed_in_user, :super_or_seller_user, :only => [:create,:new]
+    before_filter :signed_in_user, :super_user, :only => [:index]
   def create
     @sporcad = Sporcad.new(params[:sporcad])
     if @sporcad.save
-      redirct_to @sporcad
+      redirect_to @sporcad
     else
       render :new
     end
@@ -15,7 +18,7 @@ class SporcadsController < ApplicationController
 
   def update
     @sporcad = Sporcad.find(params[:id])
-    if @sportcad.update_attributes(params[:sporcad])
+    if @sporcad.update_attributes(params[:sporcad])
       redirect_to @sporcad
     else
       render :edit
@@ -38,5 +41,16 @@ class SporcadsController < ApplicationController
 
   def edit
     @sporcad = Sporcad.find(params[:id])
+  end
+
+  private
+
+  def super_or_correct_seller_user
+
+    @user = Sporcad.find(params[:id]).academy.user  #User.find_by_id(Sporcad.find(params[:id]).academy.user_id )
+
+    unless (current_user?(@user) and current_user.role=="seller") or current_user.role== "super"
+      redirect_to root_path, :notice => "Action not allowed to this user"
+    end
   end
 end

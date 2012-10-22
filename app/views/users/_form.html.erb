@@ -10,7 +10,10 @@
   <%= f.password_field :password %>
 
   <%= f.label :password_confirmation, "Retype Password" %>
-  <%= f.password_field :password_confirmation %> <br>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.label :type %>
+  <%= f.select :role, [["Super User", "super"],["Owner","seller"],["Normal User","buyer"]]%> <br>
 
   <%= f.submit "Sign up", :class=> "actions btn btn-large btn-primary" %>
 <% end %>

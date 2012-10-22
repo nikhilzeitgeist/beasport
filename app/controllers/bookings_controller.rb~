@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
 
-  before_filter :signed_in_user, :super_user, :only => [:index ]
+  before_filter :signed_in_user, :only => [:edit, :update, :destroy ]
   before_filter :signed_in_user, :only => [:create, :new]
-  before_filter :signed_in_user, :super_or_correct_user, :only => [:edit, :update, :destroy]
+  before_filter :signed_in_user, :super_user, :only => [:index]
 
   def create
     #Booking.create (params[:booking])      #Use this line if creating bookings directly from new view of booking.

@@ -1,9 +1,18 @@
 <table>
+  <thead>
+    <th>Date and Time</th>
+    <th></th>
+    <th></th>
+    <th>User</th>
+  </thead>
   <% @sporcad.bookings.order("booked_at").each do |b| %>
     <tr>
-      <td><%=  b.booked_at.strftime('%Y-%b-%d %A %H:%M') %> </td><td>To</td><td><%=b.booked_at.hour+1%>:00</td>
-      <td><%= link_to "Cancel", [b.sporcad, b], confirm: "Are you sure?", method: :delete  %></td>
-     <td><%=  link_to "Update", "/sporcads/#{@sporcad.id}/bookings/#{b.id}/edit"  %></td>
+      <td><%=  b.booked_at.strftime('%Y-%b-%d %A %H:%M') %></td>
+      <td>&nbspTo&nbsp</td>
+      <td><%=b.booked_at.hour+1%>:00</td>
+       <td>&nbsp &nbsp<%= b.user.name %></td>
+      <td>&nbsp &nbsp<%= link_to "Cancel", [b.sporcad, b], confirm: "Are you sure?", method: :delete  %></td>
+     <td>&nbsp &nbsp<%=  link_to "Update", "/sporcads/#{@sporcad.id}/bookings/#{b.id}/edit"  %></td>
      <%# '/sporcads/#{@sporcad.id}/bookings/#{b.id}/edit' %>
     </tr>
   <%end%>

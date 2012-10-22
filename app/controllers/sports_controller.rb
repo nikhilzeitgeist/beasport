@@ -1,4 +1,6 @@
 class SportsController < ApplicationController
+  before_filter :signed_in_user, :super_user, :except => [:show, :index]
+
   def new
     @sport = Sport.new
   end

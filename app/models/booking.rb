@@ -12,6 +12,8 @@
 class Booking < ActiveRecord::Base
   attr_accessible :booked_at, :sporcad_id
   belongs_to :sporcad
+  belongs_to :user
+  validates :user_id, :presence => true, :numericality => {:only_integer =>  true}
   validates :sporcad_id, :presence => true, :numericality => {:only_integer =>  true}
   validates :booked_at, :presence => true, :uniqueness => true
 end

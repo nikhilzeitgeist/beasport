@@ -1,4 +1,18 @@
+
+<table>
+  <thead>
+  <th>Name</th>
+  <th>Email</th>
+  </thead>
+  <tbody>
 <% @users.each do |user| %>
-  <%= user.email %>
-  <%=  user.name %> <br>
+    <tr>
+      <td><%=  user.name %></td>
+      <td><%=  user.email %></td>
+      <td><%= link_to "Update Profile", edit_user_path(user) %></td>
+      <td><%= link_to "Delete User", user, :method => :delete, :confirm => "Are you sure?" %></td>
+    </tr>
 <% end %>
+
+  </tbody>
+</table>
