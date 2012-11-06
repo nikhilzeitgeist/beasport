@@ -1,0 +1,22 @@
+<table>
+  <thead>
+  <th>Academy</th>
+  <th>Sport</th>
+  <th>Date and Time</th>
+  <th></th>
+  <th></th>
+  <th>User</th>
+  </thead>
+  <% @bookings.each do |b| %>
+    <tr>
+      <td><%= b.sporcad.academy.name %></td>
+      <td><%= b.sporcad.sport.name %></td>
+      <td><%=  b.booked_at.strftime('%Y-%b-%d %A %H:%M') %></td>
+      <td>&nbspTo&nbsp</td>
+      <td><%=b.booked_at.hour+1%>:00</td>
+      <td>&nbsp &nbsp<%= b.user.name %></td>
+      <td>&nbsp &nbsp<%= link_to "Cancel", [b.sporcad, b], confirm: "Are you sure?", method: :delete  %></td>
+      <%# '/sporcads/#{@sporcad.id}/bookings/#{b.id}/edit' %>
+    </tr>
+  <%end%>
+</table>

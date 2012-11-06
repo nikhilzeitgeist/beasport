@@ -1,28 +1,4 @@
 <h1>Sports</h1>
-<table>
-	<tr>
-		<td>Name</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-	<%  @sports.each do |a| %>
-  <tr>
-  	<td>
-  		<%= a.name  %>  
-  	</td>
-  	<td>	
-  		<%= link_to "Show", a %> 
-  	</td>
-  	<td>
-  		<%= link_to "Edit", edit_sport_path(a)  %>   <%# Instead of 'a' , you can write full path for link 			like  $- /sports/#{a.id}/edit -$  or $-  -$   %>
-  	</td>
-  	<td>	
-   		<%= link_to "Delete", a , :method => :delete, confirm: "Are you sure?" %> <br />
-   	</td>	
-   </tr>
-<% end %>
-</table>
-
-<%=  link_to "Create new", new_sport_path %>
+<%= render "sports" %>
+<%= link_to "Create new", new_sport_path %>
 

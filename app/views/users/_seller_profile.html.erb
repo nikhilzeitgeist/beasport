@@ -1,0 +1,21 @@
+<h2>Academies of this user</h2>
+<% @academies = current_user.academies %>
+<%= render 'academies/academies' %>
+
+<h2>Sporcads for this user's academies</h2>
+<% @sporcads = Array.new  %>
+<% @academies.each do |acad| %>
+  <% acad.sporcads.each do |spor|  %>
+    <% @sporcads << spor %>
+  <% end %>
+<% end %>
+<%= render 'sporcads/sporcads' %>
+
+<h2>Bookings for this user's academies</h2>
+<% @bookings = Array.new %>
+<%@sporcads.each do |spor1| %>
+  <% spor1.bookings.each do |book| %>
+    <% @bookings << book %>
+  <% end %>
+<% end %>
+<%= render 'bookings/bookings' %>

@@ -1,7 +1,5 @@
 Beasport::Application.routes.draw do
 
-
-
   get "users/new"
 
   match '/signup' => 'users#new'
@@ -16,6 +14,7 @@ Beasport::Application.routes.draw do
 
 	resources :sports, :academies, :users
   resources :sessions,  :only => [:new, :create, :destroy]
+  resources :bookings, :only => [:index,:show]
 
   resources :sporcads do
     resources :bookings

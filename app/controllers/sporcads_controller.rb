@@ -1,13 +1,18 @@
 class SporcadsController < ApplicationController
     before_filter :signed_in_user, :super_or_correct_seller_user, :only => [:edit,:update, :destroy]
+    before_filter :signed_in_user, :only => [:index]
     before_filter :signed_in_user, :super_or_seller_user, :only => [:create,:new]
-    before_filter :signed_in_user, :super_user, :only => [:index]
   def create
-    @sporcad = Sporcad.new(params[:sporcad])
-    if @sporcad.save
-      redirect_to @sporcad
+
+    if current_user.academy_ids.include?((params[:sporcad][:academy_id]).to_i)  or current_user.role == "super"
+      @sporcad = Sporcad.new(params[:sporcad])
+      if @sporcad.save
+        redirect_to @sporcad
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to root_path, :notice => "This action can not be peformed by current user"
     end
   end
 

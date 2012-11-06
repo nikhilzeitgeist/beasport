@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <td>Academy &nbsp &nbsp</td>
+    <td>Sport</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <% @sporcads.each do |sc| %>
+    <tr>
+      <td><%= sc.academy.name %> &nbsp &nbsp</td>
+      <td><%= sc.sport.name %>&nbsp</td>
+      <td><%= link_to 'Show', "/sporcads/#{sc.id}" %></td>
+      <td><%= link_to 'Edit', edit_sporcad_path(sc) %></td>
+      <td><%= link_to 'Delete', sc, method: :delete, confirm: "Are you sure?" %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-  before_filter :signed_in_user, :super_user, :only => [:index ]
+  before_filter :signed_in_user, :only => [:index ]
   before_filter :signed_in_user, :only => [:create, :new]
   before_filter :signed_in_user, :super_or_correct_user, :only => [:edit, :update, :destroy]
 
@@ -44,7 +44,6 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
   end
-
 
   def index
     @bookings = Booking.all

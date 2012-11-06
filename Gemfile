@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'debugger'
 gem 'rails', '3.2.8'
 gem 'bootstrap-sass', '2.1.0'
 gem 'bcrypt-ruby', '3.0.1'
@@ -10,6 +9,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'dynamic_form'
 
 group :development do
+  gem 'pry'
 	gem 'pg', '0.14.1'
 	gem 'annotate', '~> 2.4.1.beta'
 end

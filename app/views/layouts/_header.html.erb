@@ -3,7 +3,7 @@
     <span class="pull-left"><%= current_user.name if signed_in? %></span>
     <ul class="nav pull-right">
       <li><a href="<%= root_path %>">Home</a></li>
-      <li><a href="#">Help</a></li>
+      <li><a href="<%= help_path %>">Help</a></li>
       <% if signed_in? %>
         <li><%= link_to "Users", '#' %></li>
         <li id="fat-menu" class="dropdown">
