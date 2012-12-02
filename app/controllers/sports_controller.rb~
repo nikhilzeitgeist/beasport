@@ -12,7 +12,7 @@ class SportsController < ApplicationController
   def update
 
     @sport = Sport.find(params[:id])
-    
+    load '/home/nikhil/.rvm/gems/ruby-1.9.3-p194@beasport/gems/pry-0.9.10/lib/pry.rb'
     binding.pry
 
     if @sport.update_attributes(params[:sport])

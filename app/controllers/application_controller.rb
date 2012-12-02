@@ -3,8 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def super_or_seller_user
-    debugger
-    unless current_user.role == "seller" or current_user.role=="super"
+      unless current_user.role == "seller" or current_user.role=="super"
       redirect_to root_path, :notice => "No permission to this user"
     end
   end
@@ -12,7 +11,6 @@ class ApplicationController < ActionController::Base
   def signed_in_user
     unless signed_in?
       store_url
-      debugger
       redirect_to signin_path, :notice => "Please sign in first"
     end
   end

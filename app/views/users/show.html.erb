@@ -12,6 +12,7 @@
     </tr>
   </tbody>
 </table>
+
 <% if signed_in? %>
   <%= render 'seller_profile' if current_user.role == "seller" %>
   <%= render 'super_profile' if current_user.role == "super" %>

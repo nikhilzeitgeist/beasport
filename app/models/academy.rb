@@ -14,7 +14,8 @@ class Academy < ActiveRecord::Base
   has_many :sporcads, :dependent => :destroy
   has_many :sports, :through => :sporcads
 
-  validates :name, :presence => true, :length => {:in => 3..20, :message => "length should be between 3 to 20 chars"},
+  validates :name, :presence => true, :length => {:in => 3..20, :message => "length should be between 3 to 							20 chars"},
             :uniqueness =>true, :format =>  {:with => /\A[a-zA-Z]+\z/, :message => "Only letters allowed."}
   validates :user_id, :presence => true, :numericality => {:only_integer =>  true}
+  
 end
